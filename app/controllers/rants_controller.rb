@@ -10,6 +10,16 @@ class RantsController < ApplicationController
     render json: @rant
   end
 
-  
+  def create
+    @rant = Rant.new(rant_params)
+    @rant.save
+    render json: @rant
+  end
+
+  private
+
+  def rant_params
+    params.require(:rant).permit(:title, :body, :user_id)
+  end
 
 end
