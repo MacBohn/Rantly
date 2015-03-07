@@ -16,6 +16,12 @@ class RantsController < ApplicationController
     render json: @rant
   end
 
+  def update
+    @rant = Rant.find(params[:id])
+    @rant.update(rant_params)
+    render json: @rant
+  end
+
   private
 
   def rant_params
