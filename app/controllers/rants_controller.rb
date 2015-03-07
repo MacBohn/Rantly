@@ -10,4 +10,6 @@ class RantsController < ApplicationController
     render json: @rant
   end
 
+  
+
 end
