@@ -22,6 +22,13 @@ class RantsController < ApplicationController
     render json: @rant
   end
 
+  def destroy
+    @rant = Rant.find(params[:id])
+    @rant.destroy
+    @rants = Rant.all
+    render json: @rants
+  end
+
   private
 
   def rant_params
